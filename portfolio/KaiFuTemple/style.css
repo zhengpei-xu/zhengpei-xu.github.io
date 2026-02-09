@@ -1,0 +1,62 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #000;
+    font-family: sans-serif;
+
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+/* book container */
+#flipbook {
+    margin: 0 auto;
+
+    /* ✅ This dark background becomes the "left blank page" next to cover */
+    background: #222;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* normal pages stay white */
+#flipbook .page,
+#flipbook .turn-page {
+    background: #fff;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* optional ending blank page */
+#flipbook .page.blank {
+    background: #222 !important;
+}
+
+/* do not force transforms on wrappers */
+#flipbook .page-wrapper,
+#flipbook .turn-page-wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* images */
+#flipbook img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}

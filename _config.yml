@@ -13,7 +13,7 @@ title                    : "Zhengpei Xu"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://zhengpei-xu.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+url                      : "https://zhengpei-xu.github.io" # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
@@ -23,13 +23,13 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Zhengpei(Pippin) Xu"
-  pronouns         : # example: "he/him"  
+  pronouns         : "徐政培<br/>he/him"  
   bio              : "MRes student at Center for Advanced Spatial Analysis(CASA)"
   location         : "London, United Kingdom"
   employer         : "University College London"
-  uri              : "https://zhengpei-xu.github.io
+  uri              : "https://zhengpei-xu.github.io"
   email            : "zhengpei_xu@outlook.com" 
 
   # Academic websites
@@ -51,7 +51,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "https://github.com/zhengpei-xu"
+  github           : "zhengpei-xu"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -66,7 +66,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "https://www.linkedin.com/in/zhengpei-xu-88197b38b/"
+  linkedin         : "zhengpei-xu-88197b38b/"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

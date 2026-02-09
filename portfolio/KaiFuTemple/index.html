@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <title>My Photofolio - Each Solitary Moment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Robust loader: jQuery (CDN1 -> CDN2 -> local) -> turn.js -> start app -->
+    <script>
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const s = document.createElement("script");
+                s.src = src;
+                s.async = false;
+                s.onload = () => resolve(src);
+                s.onerror = () => reject(new Error("Failed to load " + src));
+                document.head.appendChild(s);
+            });
+        }
+
+        async function bootFlipbook() {
+            const jqueryCandidates = [
+                "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+                "https://code.jquery.com/jquery-3.6.0.min.js",
+                "lib/jquery-3.6.0.min.js" // optional local fallback
+            ];
+
+            let jqueryLoaded = false;
+            for (const src of jqueryCandidates) {
+                try {
+                    await loadScript(src);
+                    if (window.jQuery) { jqueryLoaded = true; break; }
+                } catch (e) { }
+            }
+
+            if (!jqueryLoaded) {
+                console.error("jQuery failed to load. If your network blocks CDNs, add lib/jquery-3.6.0.min.js locally.");
+                return;
+            }
+
+            try {
+                await loadScript("lib/turn.min.js");
+            } catch (e) {
+                console.error("Turn.js failed to load. Check lib/turn.min.js path.");
+                return;
+            }
+
+            if (typeof window.__startFlipbook === "function") {
+                window.__startFlipbook();
+            } else {
+                console.error("__startFlipbook() not found.");
+            }
+        }
+
+        window.addEventListener("load", bootFlipbook);
+    </script>
+</head>
+
+<body>
+    <div id="flipbook"></div>
+
+    <script>
+        window.__startFlipbook = function () {
+            const PROJECT_PATH = "./";
+            const TOTAL_PAGES = 13;
+
+            // Spread base ratio (double-page)
+            const SPREAD = { w: 4960, h: 3508 };
+
+            let resizeTimer = null;
+            let inited = false;
+
+            // ✅ Cover must be page 1 so it appears on the RIGHT in double mode
+            const COVER_PAGE = 1;
+
+            // --- Preload for smoother animation ---
+            const _preloaded = new Set();
+
+            function preloadImageByIndex(imgIndex) {
+                if (imgIndex < 1 || imgIndex > TOTAL_PAGES) return;
+                if (_preloaded.has(imgIndex)) return;
+                _preloaded.add(imgIndex);
+
+                const im = new Image();
+                im.src = `${PROJECT_PATH}images/ConCreate-${imgIndex}.jpg`;
+            }
+
+            function preloadAround(turnPage, radius = 3) {
+                // mapping (no leading blank page):
+                // turnPage 1 = image 1 (cover)
+                // so imageIndex = turnPage
+                for (let d = -radius; d <= radius; d++) {
+                    const p = turnPage + d;
+                    preloadImageByIndex(p);
+                }
+            }
+
+            // --- Page creation ---
+            function createPages() {
+                const container = document.getElementById("flipbook");
+                if (!container) return;
+
+                // Avoid duplicating pages on hot reload
+                if (container.children.length > 0) return;
+
+                // 1) Image pages (cover is page 1)
+                for (let i = 1; i <= TOTAL_PAGES; i++) {
+                    const page = document.createElement("div");
+                    page.className = "page";
+
+                    const img = document.createElement("img");
+                    img.src = `${PROJECT_PATH}images/ConCreate-${i}.jpg`;
+                    img.alt = `Photo Page ${i}`;
+
+                    page.appendChild(img);
+                    container.appendChild(page);
+                }
+
+                // 2) Optional ending blank page to balance last spread (page 109 on right)
+                //const blankEnd = document.createElement("div");
+                //blankEnd.className = "page blank";
+                //container.appendChild(blankEnd);
+            }
+
+            // --- Responsive sizing (always double: portrait + landscape) ---
+            function computeSpreadSize() {
+                const padding = 16;
+                const maxW = Math.max(320, window.innerWidth - padding);
+                const maxH = Math.max(320, window.innerHeight - padding);
+
+                const aspect = SPREAD.h / SPREAD.w;
+
+                let w = Math.min(maxW, SPREAD.w);
+                let h = w * aspect;
+
+                if (h > maxH) {
+                    h = Math.min(maxH, SPREAD.h);
+                    w = h / aspect;
+                }
+
+                return { w: Math.floor(w), h: Math.floor(h) };
+            }
+
+            function applyLayout() {
+                const size = computeSpreadSize();
+
+                if (!inited) {
+                    $("#flipbook").turn({
+                        width: size.w,
+                        height: size.h,
+                        autoCenter: true,
+                        display: "double",
+                        acceleration: true,
+                        gradients: true,
+                        elevation: 50,
+
+                        // Start on cover (right page)
+                        page: 2,
+
+                        when: {
+                            turning: function (e, page) {
+                                // Guard (shouldn't ever go < 1)
+                                if (page < 1) {
+                                    e.preventDefault();
+                                    $(this).turn("page", 1);
+                                    return false;
+                                }
+                                preloadAround(page, 3);
+                            }
+                        }
+                    });
+
+                    inited = true;
+                } else {
+                    $("#flipbook").turn("size", size.w, size.h);
+                    const cur = $("#flipbook").turn("page");
+                    if (cur < 1) $("#flipbook").turn("page", 1);
+                }
+            }
+
+            // --- Mobile swipe ---
+            function enableSwipe() {
+                const el = document.getElementById("flipbook");
+                if (!el) return;
+
+                let startX = null;
+
+                el.addEventListener("touchstart", (e) => {
+                    if (!e.touches || e.touches.length !== 1) return;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+
+                el.addEventListener("touchend", (e) => {
+                    if (startX === null) return;
+
+                    const endX = (e.changedTouches && e.changedTouches[0])
+                        ? e.changedTouches[0].clientX
+                        : startX;
+
+                    const dx = endX - startX;
+                    startX = null;
+
+                    const threshold = 40;
+
+                    if (dx > threshold) {
+                        // previous
+                        const cur = $("#flipbook").turn("page");
+                        if (cur <= 1) return; // don't go before cover
+                        $("#flipbook").turn("previous");
+                    } else if (dx < -threshold) {
+                        // next
+                        $("#flipbook").turn("next");
+                    }
+                }, { passive: true });
+            }
+
+            // Start
+            createPages();
+            preloadAround(COVER_PAGE, 4);
+            applyLayout();
+            enableSwipe();
+
+            // Keyboard navigation
+            $(document).on("keydown", function (e) {
+                const cur = $("#flipbook").turn("page");
+                if (e.key === "ArrowLeft") {
+                    if (cur <= 1) return;
+                    $("#flipbook").turn("previous");
+                } else if (e.key === "ArrowRight") {
+                    $("#flipbook").turn("next");
+                }
+            });
+
+            // Resize / orientationchange (debounced)
+            const onResize = () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(applyLayout, 80);
+            };
+            window.addEventListener("resize", onResize);
+            window.addEventListener("orientationchange", onResize);
+        };
+    </script>
+</body>
+
+</html>

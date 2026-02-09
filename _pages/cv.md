@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: ""
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -11,54 +11,47 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* MRes in Urban Spatial Science, University College London, 2026 (expected)
+* BArch in Architecture, China University of Mining and Technology (Beijing), 2020-2025
+  - Five consecutive years of school scholarships 2020-2025
+  - National College Student Historical Building Research Competition 2024, Second Award
+  - Beijing Architectural Structure Competition 2023, Second Award
+  - Exhibition of Architectural Design in Developing Countries 2022, Bronze Award
 
-Work experience
+
+
+Experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Jones Lang Lasalle(JLL), Beijing, Fall 2024
+  * Real Estate Data Analyst Intern
+  * Duties includes: Data analysis and visualization
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Wuhan University, Summer 2025
+  * 2025 International GeoInformatics Summer School Student 
+  * Artificial Intelligence and Machine Learning 
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Spatial & Quantitative Analysis
+  - Spatial data analysis and diagnostics (GIS-based)
+  - Quantitative analysis and geospatial statistics
+* Programming & Reproducible Research
+  - Python, R (data processing, spatial analysis, modelling), C language
+  - GIS tools: QGIS, ArcGIS Pro
+  - Version control and collaboration: Git, GitHub
+* Urban Simulation & Modelling
+  * Agent-based modelling (Netlogo, Mesa Package)
+  * Simulation-based analysis of urban systems
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+
+* Design & Computational Background
+  * Computational design and architectural modelling
+  * AutoCAD, Rhino, Grasshopper, SketchUp, Blender...
+  * Visualization and layout design (Adobe Creative Suite)  
+  <br>
+
+---
+CV-2025(Click to Download)
+
