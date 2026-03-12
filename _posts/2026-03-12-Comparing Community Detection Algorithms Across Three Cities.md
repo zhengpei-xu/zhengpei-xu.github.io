@@ -68,6 +68,18 @@ These are not equivalent questions, and we should not expect equivalent answers.
 
 A note on implementation: all three algorithms were run on undirected versions of the OSMnx street graphs, with edge weights set to the inverse of street length (so that shorter streets — implying stronger local connectivity — carry higher weight). Modularity, coverage, and performance were computed for each partition to enable cross-algorithm and cross-city comparison.
 
+Not all community detection algorithms are created equal — and not all of them are suitable for street networks. Here is a quick reference of the main algorithms I considered before settling on the three used in this experiment.
+
+| Algorithm | Type | Core Principle | Directed | Weighted | Complexity | Best Used When |
+|-----------|------|---------------|----------|----------|------------|----------------|
+| Girvan-Newman | Divisive hierarchical | Iteratively removes edges with highest betweenness | ✓ (iGraph only) | ✓ (iGraph only) | O(N³) | Small networks, need precise community boundaries, research settings |
+| Clauset-Newman-Moore | Agglomerative hierarchical | Greedy merging to maximise modularity | ✗ | ✓ | O(N log²N) | Large undirected networks, fast exploratory analysis |
+| Walktrap | Agglomerative hierarchical | Short random walks tend to stay within the same community | ✗ (directed → undirected) | ✓ | O(N²log N) | Street networks, uneven density networks |
+| Leading Eigenvector | Spectral | Computes eigenvector of modularity matrix for largest positive eigenvalue | ✗ | ✗ | Moderate | Undirected unweighted networks, theoretically rigorous settings |
+| Louvain | Modularity optimisation | Local modularity optimisation then super-node aggregation, iterative | ✗ | ✓ | O(N) | Large-scale networks, need fast results |
+| Leiden | Modularity optimisation | Louvain + refinement phase guaranteeing internal connectivity | ✗ | ✓ | O(N log N) | Need guaranteed connected communities, better alternative to Louvain |
+| Infomap | Information theory | Minimises description length of random walker trajectory | ✓ | ✓ | O(N) | Directed networks, flow data, need highest node classification accuracy |
+
 
 
 ## Results
