@@ -77,6 +77,22 @@ Received data from TfWM this week:
 
 ---
 
+### 2026-05-08 — Literature reading & Jeong's LTS Reproducibility
+
+`Meeting` · `Coding`  
+
+Reproducing Jeong's LTS Methodology:
+- Getting a initial LTS map of West Midland Area
+- Finishing reading Mekuri/ Conveyal/ Jeong's LTS (initially)  
+
+While further reading / work are needed, especially concerning **the whole frame of methodology** (how to frame with LTN 1/20). Figuring out what TfWM can benefit from, and making the methods easier to understand. Maybe I have to build it under a wider background, should not be limited within LTS?
+
+**Next Steps**
+- [ ] Making some sliders for TfWM (DDL: 20/5/2026)
+- [ ] presentation and communication with Jeong, preparing some questions in advance (DDL 13/5/2026)!!
+- [ ] Buffer Zone: Do i really need it? do some reading.
+
+---
 <!-- TEMPLATE
 
 ### YYYY-MM-DD — [Short title]
