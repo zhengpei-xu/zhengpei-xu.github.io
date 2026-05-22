@@ -93,6 +93,35 @@ While further reading / work are needed, especially concerning **the whole frame
 - [ ] Buffer Zone: Do i really need it? do some reading.
 
 ---
+
+### 2026-05-20 — TfWM Meeting: Deliverables Confirmed & Next Steps
+
+`Meeting` · `Decision`
+
+Met with TfWM. Callum confirmed the three final deliverables for the dissertation, so the overall direction is now locked in. The ask is clearly industry-facing — a commercial report plus a presentation suggests TfWM wants something they can actually use and circulate internally, not just an academic analysis. This also means the rationale for which LTN 1/20 metrics are included vs excluded needs to be very explicit: what can be answered with data, what can't, and why each one is in or out.
+
+**Decisions Made**
+- Final deliverables confirmed as three components:
+  - a) A classification of LTN 1/20 metrics by operability — which can be quantified / improved through data, and which are inherently subjective and harder to fold into an automated network-scale assessment
+  - b) A commercial report for TfWM
+  - c) A final presentation to TfWM
+- Next meeting (Fri 29/5) deliverables specified by Callum (see Next Steps)
+
+**Open Questions**
+- Format and depth of the commercial report — page count, structure, whether an executive summary is expected. Needs confirming with Callum.
+- Criteria for including/excluding metrics — purely data availability, or also methodological rigour and TfWM's intended use case?
+- Audience for the final presentation — technical team only, or also policy / decision-makers? This shapes the framing.
+
+**Next Steps**
+- [ ] Prepare slides for next Friday's meeting detailing progress so far (DDL: 29/5/2026)
+- [ ] List which LTN 1/20 metrics will be answered, and which won't
+- [ ] Write justification for excluded metrics (data limitation / subjectivity / scope)
+- [ ] Finalise the LTN 1/20-enhanced LTS framework and send to Duncan for review
+- [ ] Draft a plan for the next few weeks of data analysis work
+- [ ] Compile potential interview questions (for stakeholders)
+
+---
+
 <!-- TEMPLATE
 
 ### YYYY-MM-DD — [Short title]
