@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>My Photofolio - Each Solitary Moment</title>
+    <title>Time Within a Ruler - Kai-Fu Temple Survey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="style.css">
@@ -65,7 +65,7 @@
     <script>
         window.__startFlipbook = function () {
             const PROJECT_PATH = "./";
-            const TOTAL_PAGES = 13;
+            const TOTAL_PAGES = 37;
 
             // Spread base ratio (double-page)
             const SPREAD = { w: 4960, h: 3508 };
@@ -85,7 +85,7 @@
                 _preloaded.add(imgIndex);
 
                 const im = new Image();
-                im.src = `${PROJECT_PATH}images/ConCreate-${imgIndex}.jpg`;
+                im.src = `${PROJECT_PATH}images/KaiFuTemple-${imgIndex}.jpg`;
             }
 
             function preloadAround(turnPage, radius = 3) {
@@ -112,8 +112,8 @@
                     page.className = "page";
 
                     const img = document.createElement("img");
-                    img.src = `${PROJECT_PATH}images/ConCreate-${i}.jpg`;
-                    img.alt = `Photo Page ${i}`;
+                    img.src = `${PROJECT_PATH}images/KaiFuTemple-${i}.jpg`;
+                    img.alt = `Time Within a Ruler, page ${i}`;
 
                     page.appendChild(img);
                     container.appendChild(page);
