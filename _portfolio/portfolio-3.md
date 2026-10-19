@@ -1,8 +1,9 @@
 ---
 title: "Automated Cycling Infrastructure Assessment Tool 2026"
 excerpt: "An LTN 1/20-adapted Level of Traffic Stress (LTS) tool for Transport for West Midlands (TfWM)<br/>
-Network-scale, segment-level assessment of cycling infrastructure across the West Midlands"
+Network-scale, segment-level assessment of cycling infrastructure across the West Midlands<br/><img src='/images/TfWM-Cover.jpg' style='height:300px; width:auto; max-width:100%;'>"
 collection: portfolio
+date: 2026-09-01
 
 ---
 
