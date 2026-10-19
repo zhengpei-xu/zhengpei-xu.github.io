@@ -2,6 +2,7 @@
 title: "ConCreate 2024"
 excerpt: "Modular Housing: A Self-Build System<br/><img src='/images/ConCreate-Cover.jpg' style='height:300px; width:auto; max-width:100%;'>"
 collection: portfolio
+date: 2024-06-01
 link: "/portfolio/ConCreate/index.html"
 
 ---

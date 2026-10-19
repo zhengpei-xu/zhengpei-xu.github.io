@@ -1,8 +1,9 @@
 ---
 title: "Automated Cycling Infrastructure Assessment Tool 2026"
-excerpt: "An LTN 1/20-adapted Level of Traffic Stress (LTS) tool for Transport for West Midlands (TfWM)<br/>
-Network-scale, segment-level assessment of cycling infrastructure across the West Midlands"
+excerpt: "An automated LTN 1/20 Cycling Level of Service (CLoS) tool for Transport for West Midlands (TfWM)<br/>
+Network-wide and route-level assessment of cycling infrastructure across the West Midlands<br/><img src='/images/TfWM-Cover.jpg' style='height:300px; width:auto; max-width:100%;'>"
 collection: portfolio
+date: 2026-09-01
 
 ---
 
@@ -11,18 +12,20 @@ collection: portfolio
 **Study area:** West Midlands  
 **Year:** 2026
 
+<img src="/images/TfWM-Cover.jpg" style="width:100%;" />
+
 ## Overview
 
-This tool automatically assesses the cycling network in the West Midlands at the level of individual road segments. It builds on the Level of Traffic Stress (LTS) framework. The original LTS thresholds were developed for North American roads, so the tool replaces them with the design standards in the UK's **Local Transport Note 1/20 (LTN 1/20)**. These are the same standards that TfWM's own cycling schemes are assessed against.
+This web-based tool evaluates cycling infrastructure in the West Midlands against the **Cycling Level of Service (CLoS)** framework in the UK's **Local Transport Note 1/20 (LTN 1/20)**. These are the same design standards that TfWM's own cycling schemes are assessed against.
 
-The tool turns what would otherwise be a manual, site-by-site design audit into a repeatable assessment covering the whole network. TfWM can use the results to see where existing infrastructure falls short and to compare corridors.
+The tool turns what would otherwise be a manual, site-by-site design audit into a repeatable assessment covering the whole network. TfWM can use it to see where existing infrastructure falls short and to compare routes.
 
 ## What It Does
 
-- **Segment-level stress scoring.** Each road segment is classified by cycling stress, using LTN 1/20 criteria in place of North American LTS thresholds.
-- **LTN 1/20 metric operability.** LTN 1/20 metrics are classified into those that can be measured and improved using data, and those that are inherently subjective and harder to include in an automated, network-scale assessment. The tool states which metrics are included, which are excluded, and why.
-- **Multiple data sources.** The assessment draws on data provided by TfWM, including Compass IoT near-miss data, iRAP road safety star ratings and the TfWM Data Insight self-serve portal.
-- **Interactive parameters.** Sliders let TfWM staff adjust thresholds and weightings and see how the network assessment changes as a result.
+- **Network-wide CLoS map.** Every street segment is coloured by its CLoS score, either overall or by a single dimension, and for each direction of travel.
+- **Route assessment.** Users click an origin and a destination on the map. The tool scores the route on the five LTN 1/20 dimensions (safety, attractiveness, comfort, directness and coherence) and gives an overall score.
+- **Gradient profile.** An elevation profile along the route is checked against the gradient limits in LTN 1/20 Table 5-8, with each section flagged green, amber or red.
+- **LTN 1/20 metric operability.** LTN 1/20 metrics are classified into those that can be measured using data, and those that are inherently subjective and harder to include in an automated, network-scale assessment. The tool states which metrics are included, which are excluded, and why.
 
 ## Deliverables
 
